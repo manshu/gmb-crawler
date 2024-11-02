@@ -4,6 +4,10 @@ import { searchGoogleMaps } from "./controllers/searchGoogleMaps";
 const app = express();
 const port = 3000;
 
+app.get('/', (req: Request, res: Response) => {
+    res.redirect('/search');
+});
+
 app.get('/search', async (req: Request, res: Response) => {
     try {
         console.log('Query:', req.query.q);
