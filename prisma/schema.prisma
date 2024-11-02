@@ -1,0 +1,22 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mongodb"
+    url      = env("DATABASE_URL")
+}
+
+model GoogleBusinessProfile {
+    id              String  @id @default(auto()) @map("_id") @db.ObjectId
+    placeId         String? @unique
+    address         String?
+    category        String?
+    phone           String?
+    googleUrl       String?
+    bizWebsite      String?
+    storeName       String?
+    ratingText      String?
+    stars           Int?
+    numberOfReviews Int?
+}
